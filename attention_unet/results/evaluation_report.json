@@ -1,0 +1,31 @@
+{
+    "generated_at": "2026-03-16 02:13:10",
+    "model": "Attention UNet with MobileNetV2 encoder",
+    "config": {
+        "img_size": [
+            256,
+            256
+        ],
+        "num_classes": 4,
+        "batch_size": 32,
+        "epochs": 20,
+        "loss": "Combined CCE, Focal loss, Tversky loss",
+        "optimizer": "Adam"
+    },
+    "dataset": {
+        "train": 4796,
+        "val": 600,
+        "test": 600
+    },
+    "test_results": {
+        "loss": 0.2057,
+        "accuracy": 0.9423,
+        "mean_iou_no_bg": 0.4714
+    },
+    "per_class_iou": {
+        "background": 0.9599,
+        "grass_short": 0.5356,
+        "grass_medium": 0.2194,
+        "grass_long": 0.1707
+    }
+}
