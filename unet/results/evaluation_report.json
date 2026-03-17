@@ -1,0 +1,31 @@
+{
+    "generated_at": "2026-03-16 02:49:30",
+    "model": "UNet with MobileNetV2 encoder",
+    "config": {
+        "img_size": [
+            256,
+            256
+        ],
+        "num_classes": 4,
+        "batch_size": 32,
+        "epochs": 20,
+        "loss": "Combined CCE,Tversky loss",
+        "optimizer": "Adam"
+    },
+    "dataset": {
+        "train": 4796,
+        "val": 600,
+        "test": 600
+    },
+    "test_results": {
+        "loss": 0.2067,
+        "accuracy": 0.9493,
+        "mean_iou_no_bg": 0.4811
+    },
+    "per_class_iou": {
+        "background": 0.9656,
+        "grass_short": 0.5493,
+        "grass_medium": 0.2267,
+        "grass_long": 0.1828
+    }
+}
