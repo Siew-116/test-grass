@@ -1,0 +1,75 @@
+{
+  "generated_at": "2026-03-17 05:54:44",
+  "model": "ResNet50 + U-Net",
+  "parameter_alignment": {
+    "image_size": [
+      256,
+      256
+    ],
+    "batch_size": 32,
+    "training_epochs": {
+      "phase1": 20,
+      "phase2": 10
+    },
+    "class_weights": {
+      "0": 0.18514960258013413,
+      "1": 0.91644377662885,
+      "2": 1.3315619365873061,
+      "3": 1.5668446842037094
+    },
+    "random_seed": 42,
+    "augmentation": [
+      "vertical_flip",
+      "horizontal_flip",
+      "contrast",
+      "saturation",
+      "hue"
+    ],
+    "decoder_filter_size": [
+      512,
+      256,
+      128,
+      64,
+      32
+    ],
+    "dropout": 0.1,
+    "loss_function": "Weighted CCE + Focal Loss + Tversky Loss",
+    "optimizer": "Adam",
+    "learning_rate": {
+      "phase1": 0.0003,
+      "phase2": 3e-05
+    },
+    "early_stopping": {
+      "monitor": "mean_iou_no_bg",
+      "phase1_patience": 12,
+      "phase2_patience": 3
+    },
+    "reduce_lr_on_plateau": {
+      "min_lr": 1e-06,
+      "phase1_patience": 5,
+      "phase2_patience": 2
+    },
+    "metrics": [
+      "categorical_accuracy",
+      "mean_iou_no_bg"
+    ],
+    "phase1_training": "Freeze pre-trained ResNet50 encoder",
+    "phase2_training": "Unfreeze last 25% of pre-trained model, keep BatchNorm frozen"
+  },
+  "dataset": {
+    "train": 4796,
+    "val": 600,
+    "test": 600
+  },
+  "test_results": {
+    "loss": 0.2959000766277313,
+    "categorical_accuracy": 0.9368553757667542,
+    "mean_iou_no_bg": 0.3071770966053009
+  },
+  "per_class_iou": {
+    "background": 0.9536359819176898,
+    "grass_short": 0.5249376159104082,
+    "grass_medium": 0.22149040742301335,
+    "grass_long": 0.17510328053903715
+  }
+}
